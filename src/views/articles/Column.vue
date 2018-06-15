@@ -30,7 +30,6 @@
 
 <script>
 import { mapState } from 'vuex'
-
 export default {
   name: 'Column',
   data() {
@@ -66,7 +65,6 @@ export default {
       const articleId = params.articleId
       // 当前文章
       const article = this.$store.getters.getArticleById(articleId)
-
       // 存在当前文章时，设置用户数据为当前文章的用户信息，并使用文章的 uname 获取对应用户文章
       if (article) {
         this.userName = article.uname
@@ -75,7 +73,6 @@ export default {
       } else if (user) {
         // 存在 user 参数时，使用路由的 user 获取对应用户文章
         const articles = this.$store.getters.getArticlesByUid(null, user)
-
         // 存在至少一篇用户文章时，设置用户数据为第一篇文章的用户信息
         if (articles.length) {
           this.userName = articles[0].uname
@@ -85,7 +82,6 @@ export default {
           this.userName = this.user.name
           this.userAvatar = this.user.avatar
         }
-
         this.articles = articles
       }
     }

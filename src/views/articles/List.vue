@@ -29,7 +29,6 @@
 
 <script>
 import { mapState } from 'vuex'
-
 export default {
   name: 'List',
   data() {
@@ -53,5 +52,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

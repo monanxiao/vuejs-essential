@@ -12,7 +12,6 @@
 import TheHeader from '@/components/layouts/TheHeader'
 // 引入 TheFooter.vue 的默认值
 import TheFooter from '@/components/layouts/TheFooter'
-
 export default {
   name: 'App',
   components: {
@@ -36,7 +35,6 @@ $link-color: #12c4c5;
 $link-hover-color: #22ddde;
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path: "~font-awesome/fonts/";
-
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "~font-awesome/scss/font-awesome";
 @import "./styles/main";

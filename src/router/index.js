@@ -23,14 +23,12 @@ const router =  new Router({
   },
   routes
 })
-// 全局前置守卫
+
 router.beforeEach((to, from, next) => {
   const app = router.app
   const store = app.$options.store
   const auth = store.state.auth
-  // 获取目标页面路由参数里的 articleId
   const articleId = to.params.articleId
-
   // 当前用户
   const user = store.state.user && store.state.user.name
   // 路由参数中的用户
@@ -41,7 +39,8 @@ router.beforeEach((to, from, next) => {
   if (
     (auth && to.path.indexOf('/auth/') !== -1) ||
     (!auth && to.meta.auth) ||
-    // 有 articleId 且不能找到与其对应的文章时，跳转到首页
+    (articleId && !store.getters.getArticleById(articleId)) ||
+    // 路由参数中的用户不为当前用户，且找不到与其对应的文章时，跳转到首页
     (paramUser && paramUser !== user && !store.getters.getArticlesByUid(null, paramUser).length)
   ) {
     next('/')

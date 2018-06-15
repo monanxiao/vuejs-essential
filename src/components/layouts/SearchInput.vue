@@ -18,7 +18,7 @@ export default {
   name: 'SearchInput',
   data() {
     return {
-      value: '' // 搜索值
+      value: ''
     }
   },
   // 添加计算属性
@@ -35,11 +35,14 @@ export default {
   methods: {
     search() {
       const value = this.value
-
       if (value !== '') {
-         // 跳转到搜索结果页，附带查询参数 q 作为搜索值
+        // 跳转到搜索结果页，附带查询参数 q 作为搜索值
         this.$router.push({ name: 'Search', query: { q: value } })
       }
+    },
+    // 更新 searchValue
+    updateSearchValue() {
+      this.$store.commit('UPDATE_SEARCH_VALUE', this.value)
     }
   }
 }
